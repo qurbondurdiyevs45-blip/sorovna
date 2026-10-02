@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48-sonli Axborot Texnologiyalariga Ixtisoslashtirilgan Maktab-Internati</title>
+    <!-- Google Fonts va FontAwesome ikonkalari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #060b24;
+            --card-bg: rgba(13, 20, 48, 0.6);
+            --primary-neon: #00f0ff;
+            --primary-purple: #7000ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glow-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.12) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 240, 255, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-neon);
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(6, 11, 36, 0.7);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 20px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-neon);
+            text-shadow: var(--glow-shadow);
+        }
+
+        .logo i {
+            font-size: 1.6rem;
+            color: var(--primary-neon);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-neon);
+            transition: width 0.3s ease;
+            box-shadow: var(--glow-shadow);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-neon);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-purple), #5000b8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(112, 0, 255, 0.5);
+            background: linear-gradient(135deg, #821aff, var(--primary-purple));
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 4% 100px 4%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-tag {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            color: var(--primary-neon);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 900px;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff 40%, #b2d6ff, var(--primary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 650px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-neon), #00b0ff);
+            color: #060b24;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--glow-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-muted);
+            transform: translateY(-3px);
+        }
+
+        /* Features / Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 80px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-100px); /* adjusted slightly down in actual render via transform scale/translate */
+            transform: translateY(-8px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.05);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary-neon);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Section Global Settings */
+        section {
+            padding: 100px 4%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .section-title h2 span {
+            color: var(--primary-neon);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Directions Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .direction-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .direction-card:hover {
+            border-color: rgba(112, 0, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(112, 0, 255, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .ib-cyan {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary-neon);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .ib-purple {
+            background: rgba(112, 0, 255, 0.1);
+            color: #9d55ff;
+            border: 1px solid rgba(112, 0, 255, 0.2);
+        }
+
+        .ib-amber {
+            background: rgba(255, 170, 0, 0.1);
+            color: #ffaa00;
+            border: 1px solid rgba(255, 170, 0, 0.2);
+        }
+
+        .direction-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .direction-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .direction-card ul {
+            list-style: none;
+            margin-bottom: auto;
+        }
+
+        .direction-card ul li {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .direction-card ul li i {
+            color: var(--primary-neon);
+            font-size: 0.8rem;
+        }
+
+        /* Admission Form Area */
+        .admission-box {
+            background: linear-gradient(135deg, rgba(13, 20, 48, 0.8), rgba(6, 11, 36, 0.9));
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 50px;
+            backdrop-filter: blur(12px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .admission-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .admission-info p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-neon);
+            font-size: 1.1rem;
+        }
+
+        .info-text h4 {
+            font-size: 0.95rem;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .info-text p {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+
+        .admission-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-group input, .form-group select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
+            padding: 14px;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .form-group select option {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-neon), #00b0ff);
+            color: #060b24;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-shadow);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Floating AI Mentor Assistant Simulation Widget */
+        .ai-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .ai-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-neon), var(--primary-purple));
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .ai-button:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .ai-chat-box {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 360px;
+            height: 480px;
+            background: #0b112c;
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ai-chat-box.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chat-header {
+            background: rgba(13, 20, 48, 0.8);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-header .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-neon);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .chat-header h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .chat-header p {
+            font-size: 0.75rem;
+            color: var(--primary-neon);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .msg.bot {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .msg.user {
+            background: var(--primary-purple);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-area {
+            padding: 15px 20px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            gap: 10px;
+            background: rgba(6, 11, 36, 0.5);
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.88rem;
+        }
+
+        .chat-input-area input:focus {
+            outline: none;
+            border-color: var(--primary-neon);
+        }
+
+        .chat-send-btn {
+            background: var(--primary-neon);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            color: #060b24;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: rgba(13, 20, 48, 0.95);
+            border: 1px solid #00f0ff;
+            box-shadow: var(--glow-shadow);
+            padding: 16px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2000;
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast i {
+            color: var(--primary-neon);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 4% 20px 4%;
+            text-align: center;
+            background: #030716;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .admission-box {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 30px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #060b24;
+                border-bottom: 1px solid var(--glass-border);
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            nav.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            .ai-chat-box {
+                width: 310px;
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastBox">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Arizangiz muvaffaqiyatli yuborildi!</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-code-branch"></i>
+            48-CBAR<span>.UZ</span>
+        </a>
+        <nav id="navMenu">
+            <a href="#bosh-sahifa" class="active">Bosh sahifa</a>
+            <a href="#yonalishlar">Yo'nalishlar</a>
+            <a href="#qabul">Qabul 2026</a>
+            <a href="#aloqa">Aloqa</a>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="#qabul" class="cta-btn">Hujjat Topshirish</a>
+            <i class="fa-solid fa-bars menu-toggle" id="menuBtn"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero" id="bosh-sahifa">
+        <div class="hero-tag">Informatika va Axborot Texnologiyalariga Ixtisoslashgan Tayanch Maktabi</div>
+        <h1>Kelajak Raqamli Dunyo Liderlarini <span>Shakllantiramiz</span></h1>
+        <p>48-sonli ayrim fanlar chuqur o'rganiladigan ixtisoslashtirilgan maktab-internatining zamonaviy ta'lim ekotizimiga xush kelibsiz! Bu yerda eng ilg'or texnologiyalar yuqori tajriba bilan birlashadi.</p>
+        
+        <div class="hero-buttons">
+            <a href="#qabul" class="btn-primary">Onlayn Ro'yxatdan O'tish</a>
+            <a href="#yonalishlar" class="btn-secondary">Sohalar bilan tanishish</a>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <div class="stat-number">1200+</div>
+                <div class="stat-label">Muvaffaqiyatli bitiruvchilar</div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-laptop-code"></i>
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Zamonaviy IT Laboratoriyalar</div>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Oliy o'quv yurtlariga qabul</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Directions / Specialized Subjects Section -->
+    <section id="yonalishlar">
+        <div class="section-title">
+            <h2>Bizning Ustuvor <span>Yo'nalishlarimiz</span></h2>
+            <p>O'quvchilarimiz umumta'lim fanlari bilan bir qatorda global bozorda eng talabgir bo'lgan zamonaviy yo'nalishlarni mukammal o'rganadilar.</p>
+        </div>
+
+        <div class="grid-3">
+            <!-- Card 1 -->
+            <div class="direction-card">
+                <div class="icon-box ib-cyan">
+                    <i class="fa-solid fa-terminal"></i>
+                </div>
+                <h3>Dasturlash va Algoritmlar</h3>
+                <p>O'quvchilar Python, C++ va JavaScript tillarida dasturlash asoslari va murakkab algoritmlarni tuzishni chuqur o'rganadilar.</p>
+                <ul>
+                    <li><i class="fa-solid fa-square-terminal"></i> Web va Mobil Dasturlash</li>
+                    <li><i class="fa-solid fa-square-terminal"></i> Xalqaro Olimpiadalarga tayyorlov</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="direction-card">
+                <div class="icon-box ib-purple">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h3>Robototexnika va Sun'iy Intellekt</h3>
+                <p>Muhandislik fikrlashini rivojlantirish uchun Arduino tizimlari va AI modellarini amaliyotda qo'llash o'rgatiladi.</p>
+                <ul>
+                    <li><i class="fa-solid fa-robot"></i> Aqlli Tizimlar va IoT loyihalar</li>
+                    <li><i class="fa-solid fa-robot"></i> Avtomatlashtirilgan mexanizmlar</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="direction-card">
+                <div class="icon-box ib-amber">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <h3>Aniq Fanlar (Chuqurlashtirilgan)</h3>
+                <p>Matematika va Fizika fanlari muhandislik va mantiqiy fikrlash asosi sifatida xalqaro standartlar asosida o'rgatiladi.</p>
+                <ul>
+                    <li><i class="fa-solid fa-chart-line"></i> Kuchaytirilgan mantiqiy tahlil</li>
+                    <li><i class="fa-solid fa-chart-line"></i> SAT va xalqaro imtihonlar kursi</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section with Interactive Form -->
+    <section id="qabul">
+        <div class="section-title">
+            <h2>Qabul <span>Komissiyasi 2026</span></h2>
+            <p>Platformamiz orqali onlayn ariza topshiring va saralash imtihonlarida ishtirok etish imkoniyatini qo'lga kiriting.</p>
+        </div>
+
+        <div class="admission-box">
+            <div class="admission-info">
+                <h3>Kelajakka ilk qadamni qo'ying</h3>
+                <p>Hujjatlar onlayn qabul qilinadi. Ma'lumotlarni to'g'ri to'ldirib yuborganingizdan so'ng, tizim sizga avtomat ravishda maxsus ID raqam taqdim etadi.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <div class="info-text">
+                        <h4>Muddati</h4>
+                        <p>Arizalar joriy yilning 25-iyuniga qadar qabul qilinadi.</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <div class="info-text">
+                        <h4>Kerakli hujjatlar</h4>
+                        <p>Tug'ilganlik haqida guvohnoma, baholar tabeli nusxasi (PDF/Rasm).</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="admission-form" id="applicationForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="fullName">O'quvchining To'liq F.I.Sh.</label>
+                    <input type="text" id="fullName" placeholder="Masalan: Karimov Sardor Anvarovich" required>
+                </div>
+                <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 15px; width:100%;">
+                    <div class="form-group">
+                        <label for="birthDate">Tug'ilgan sanasi</label>
+                        <input type="date" id="birthDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="targetClass">Qaysi sinfga</label>
+                        <select id="targetClass" required>
+                            <option value="">Tanlang...</option>
+                            <option value="5">5-Sinf</option>
+                            <option value="7">7-Sinf</option>
+                            <option value="10">10-Sinf</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Ota-onasi telefon raqami</label>
+                    <input type="tel" id="phone" placeholder="+998 (99) 123-4567" required>
+                </div>
+                <button type="submit" class="submit-btn">Arizani Tasdiqlash</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating AI Mentor Simulation Widget -->
+    <div class="ai-widget">
+        <div class="ai-button" id="aiBubble">
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <div class="ai-chat-box" id="aiChatBox">
+            <div class="chat-header">
+                <div class="avatar">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                    <h4>AI Mentor Assistant</h4>
+                    <p><i class="fa-solid fa-circle" style="font-size:7px; color:#00f0ff; margin-right:5px;"></i> Onlayn yordamchi</p>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="msg bot">
+                    Salom! Men 48-sonli IT maktab-internatining AI yordamchisiman. Maktabimiz yoki qabul jarayonlari haqida sizni nima qiziqtiradi?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Savolingizni yozing...">
+                <button class="chat-send-btn" id="sendChatBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="aloqa">
+        <p>&copy; 2026 48-sonli Chuqurlashtirilgan fanlar va IT maktab-internati. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- JavaScript logic ensuring 100% interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            menuBtn.classList.toggle('fa-bars');
+            menuBtn.classList.toggle('fa-xmark');
+        });
+
+        // Highlight Active Nav on Scroll
+        const sections = document.querySelectorAll('section, .hero');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form Submit Handler with Custom Notification Flow
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const targetClass = document.getElementById('targetClass').value;
+            const randomID = 'ID-' + Math.floor(100000 + Math.random() * 900000);
+
+            // Show customized responsive success notification
+            const toast = document.getElementById('toastBox');
+            const toastMsg = document.getElementById('toastMessage');
+            
+            toastMsg.innerHTML = `Muvaffaqiyatli! <b>${fullName}</b> uchun <b>${targetClass}-sinfga</b> ariza qabul qilindi. ID: <b>${randomID}</b>`;
+            toast.classList.add('show');
+
+            // Reset form input fields
+            document.getElementById('applicationForm').reset();
+
+            // Hide notification after 6 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 6000);
+        }
+
+        // Interactive AI Chat Box Toggle
+        const aiBubble = document.getElementById('aiBubble');
+        const aiChatBox = document.getElementById('aiChatBox');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const chatMessages = document.getElementById('chatMessages');
+
+        aiBubble.addEventListener('click', () => {
+            aiChatBox.classList.toggle('active');
+        });
+
+        // Simulate AI Response system logic
+        function triggerBotResponse(userText) {
+            let responseText = "Kechirasiz, ushbu so'rov bo'yicha aniq ma'lumot topilmadi. Qabul shartlari haqida bilish uchun 'Qabul 2026' bo'limiga o'ting yoki maktab ma'muriyatiga bog'laning.";
+            const text = userText.toLowerCase();
+
+            if (text.includes('salom') || text.includes('assalom')) {
+                responseText = "Salom! Maktabimizga qiziqish bildirganingizdan xursandmiz. Qabul kvotalari yoki darslar haqida so'rashingiz mumkin.";
+            } else if (text.includes('qabul') || text.includes('imtihon') || text.includes('hujjat')) {
+                responseText = "Qabul arizalari 25-iyungacha qabul qilinadi. Imtihonlar matematika va mantiqiy fikrlash (IT yo'nalishlari) fanlaridan bo'lib o'tadi.";
+            } else if (text.includes('dasturlash') || text.includes('it') || text.includes('til')) {
+                responseText = "Maktabimizda o'quvchilar Python, Web texnologiyalar hamda robototexnikani eng ilg'or uslublarda o'rganishadi.";
+            }
+
+            setTimeout(() => {
+                const botMsgDiv = document.createElement('div');
+                botMsgDiv.className = 'msg bot';
+                botMsgDiv.innerText = responseText;
+                chatMessages.appendChild(botMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+        }
+
+        function processUserMessage() {
+            const messageText = chatInput.value.trim();
+            if (messageText === '') return;
+
+            // Append User message to widget container
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'msg user';
+            userMsgDiv.innerText = messageText;
+            chatMessages.appendChild(userMsgDiv);
+            
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Trigger simulated dynamic bot engine response
+            triggerBotResponse(messageText);
+        }
+
+        sendChatBtn.addEventListener('click', processUserMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') processUserMessage();
+        });
+    </script>
+</body>
+</html>
